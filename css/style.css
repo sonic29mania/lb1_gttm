@@ -1,14 +1,22 @@
 /* ===================== */
-/* БАЗА */
+/* 1. BASE */
 /* ===================== */
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
     background-color: #f5f5f5;
-    background-image: url('https://via.placeholder.com/1500');
-    font-family: Arial;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Arial, sans-serif;
 }
 
 /* ===================== */
-/* HEADER */
+/* 2. HEADER */
 /* ===================== */
 .header {
     position: fixed;
@@ -30,29 +38,80 @@ body {
     z-index: 1000;
 }
 
-/* NAV (лево) */
+/* ===================== */
+/* 3. NAVIGATION */
+/* ===================== */
 .nav {
     display: flex;
-    gap: 25px;
+    align-items: center;
 }
 
-.nav a {
+.menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
     color: black;
     text-decoration: none;
     font-size: 16px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.nav a:hover {
+.menu a:hover {
     color: gray;
 }
 
-/* LOGO (центр) */
+/* Випадаюче меню */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 150px;
+    background: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+/* ===================== */
+/* 4. LOGO */
+/* ===================== */
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 100px;
 }
 
 .logo img {
@@ -61,11 +120,12 @@ body {
     object-fit: contain;
 }
 
-/* SEARCH (право) */
+/* ===================== */
+/* 5. SEARCH */
+/* ===================== */
 .search {
     display: flex;
     justify-content: flex-end;
-    padding-right: 80px;
 }
 
 .search input {
@@ -76,20 +136,34 @@ body {
 }
 
 /* ===================== */
-/* MAIN */
+/* 6. MAIN */
 /* ===================== */
 main {
-    padding: 20px;
+    padding: 120px 20px 20px;
 }
 
-aside {
-    background-color: #ddd;
-    padding: 10px;
-    margin-top: 20px;
+/* Для внутрішнього посилання */
+#popular {
+    scroll-margin-top: 120px;
 }
 
 /* ===================== */
-/* VIDEO SLIDER */
+/* 7. ASIDE */
+/* ===================== */
+aside {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.75);
+    border-left: 5px solid #111;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================== */
+/* 8. VIDEO SLIDER */
 /* ===================== */
 .video-slider {
     position: relative;
@@ -97,7 +171,9 @@ aside {
     height: 450px;
     overflow: hidden;
     border-radius: 15px;
-    margin-top: -40px;
+    margin-top: 20px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .video-slider video {
@@ -112,15 +188,19 @@ aside {
     display: block;
 }
 
-/* затемнение */
+/* Затемнення для відео, якщо використовується overlay */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
 
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.2)
+    );
 
     display: flex;
     flex-direction: column;
@@ -131,25 +211,38 @@ aside {
     text-align: center;
 }
 
-/* ===================== */
-/* SOCIALS */
-/* ===================== */
-.socials {
-    margin-top: 10px;
+.overlay h2 {
+    font-size: 38px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
 }
 
-.socials img {
-    width: 40px;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-.socials img:hover {
-    transform: scale(1.2);
+.overlay p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
 /* ===================== */
-/* PRODUCTS */
+/* 9. AUDIO */
+/* ===================== */
+.audio-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.audio-section audio {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ===================== */
+/* 10. PRODUCTS */
 /* ===================== */
 .container {
     max-width: 1100px;
@@ -184,7 +277,6 @@ aside {
     transition: all 0.4s ease;
 }
 
-/* IMAGE */
 .product img {
     width: 100%;
     height: 450px;
@@ -200,7 +292,6 @@ aside {
     transform: scale(1.04);
 }
 
-/* INFO */
 .product-info {
     padding: 20px 0;
 }
@@ -220,7 +311,6 @@ aside {
     margin-bottom: 20px;
 }
 
-/* BUTTON */
 .product button {
     width: 100%;
     padding: 14px;
@@ -251,7 +341,215 @@ aside {
 }
 
 /* ===================== */
-/* FOOTER */
+/* 11. BLOCK 3 */
+/* ГРАДІЄНТ, ТІНЬ, ПРОЗОРІСТЬ */
+/* ===================== */
+.style-demo {
+    margin: 60px auto;
+    padding: 60px 30px;
+    max-width: 1000px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(17, 17, 17, 0.85),
+        rgba(180, 140, 80, 0.75)
+    );
+
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+    color: white;
+}
+
+.style-demo h2 {
+    font-size: 36px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.style-demo p {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+/* ===================== */
+/* 12. CONTACT PAGE */
+/* ===================== */
+.contact-page {
+    background-image:
+        linear-gradient(
+            rgba(245, 245, 245, 0.9),
+            rgba(224, 224, 224, 0.9)
+        ),
+        url("../img/background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-table-section {
+    margin-bottom: 40px;
+}
+
+.find-us-section h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.row-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.info-text-side,
+.map-side {
+    flex: 1;
+}
+
+.map-side iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+
+    background: #111;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ===================== */
+/* 13. TABLE */
+/* ===================== */
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-table th,
+.contact-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.contact-table th {
+    background-color: #111;
+    color: white;
+
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.contact-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ===================== */
+/* 14. LISTS */
+/* ===================== */
+ol {
+    line-height: 1.8;
+    color: #333;
+}
+
+ol ul {
+    margin-top: 10px;
+    list-style-type: square;
+    color: #666;
+}
+
+/* ===================== */
+/* 15. TEXT FORMATTING */
+/* ===================== */
+mark {
+    background-color: gold;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+/* ===================== */
+/* 16. LINKS */
+/* ===================== */
+main a {
+    color: #111;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+main a:hover {
+    color: gold;
+    text-decoration: none;
+}
+
+/* ===================== */
+/* 17. FOOTER */
 /* ===================== */
 .footer {
     background-color: #111;
@@ -265,7 +563,10 @@ aside {
     padding: 30px;
 }
 
-/* LEFT */
+.footer > div {
+    margin: 10px;
+}
+
 .footer-left h2 {
     margin: 0;
     font-size: 28px;
@@ -276,10 +577,10 @@ aside {
     color: #ccc;
 }
 
-/* CENTER */
 .footer-center {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .footer-center a {
@@ -292,7 +593,6 @@ aside {
     color: gold;
 }
 
-/* RIGHT */
 .footer-right img {
     width: 35px;
     margin: 5px;
@@ -304,20 +604,7 @@ aside {
 }
 
 /* ===================== */
-/* TABLE */
-/* ===================== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td, th {
-    border: 1px solid black;
-    padding: 8px;
-}
-
-/* ===================== */
-/* ADAPTIVE */
+/* 18. ADAPTIVE */
 /* ===================== */
 @media (max-width: 992px) {
     .product-grid {
@@ -329,7 +616,51 @@ td, th {
     }
 }
 
+@media (max-width: 850px) {
+    .row-container {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 600px) {
+    .header {
+        position: static;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .logo img {
+        height: 60px;
+        transform: scale(1.1);
+    }
+
+    .search {
+        justify-content: center;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .video-slider {
+        height: 300px;
+        margin-top: 20px;
+    }
+
     .product-grid {
         grid-template-columns: 1fr;
     }
@@ -342,92 +673,13 @@ td, th {
         opacity: 1;
         transform: translateY(0);
     }
-}
 
-/* Специфічний фон для сторінки контактів (Картинка або колір) */
-.contact-page {
-    background-image: linear-gradient(rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)), 
-                      url('https://via.placeholder.com/1920x1080?text=Subtle+Pattern');
-    background-attachment: fixed;
-    background-size: cover;
-}
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
 
-/* Форматування тексту */
-mark {
-    background-color: gold;
-    padding: 0 5px;
-    border-radius: 3px;
-}
-
-/* Таблиця */
-.contact-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.contact-table th, .contact-table td {
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: left;
-}
-
-.contact-table th {
-    background-color: #111;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.contact-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Списки */
-ol {
-    line-height: 1.8;
-    color: #333;
-}
-
-ol ul {
-    margin-top: 10px;
-    list-style-type: square; /* Маркований список всередині нумерованого */
-    color: #666;
-}
-
-/* Карта */
-.contact-map {
-    width: 100%;
-    filter: grayscale(100%); /* Робимо карту стильною чорно-білою */
-    transition: 0.5s;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.contact-map:hover {
-    filter: grayscale(0%); /* Колір повертається при наведенні */
-}
-
-/* Гіперпосилання */
-main a {
-    color: #111;
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-main a:hover {
-    color: gold;
-    text-decoration: none;
-}
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+    .footer-center {
+        justify-content: center;
+    }
 }
