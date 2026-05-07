@@ -1,6 +1,6 @@
-/* ===================== */
+
 /* 1. BASE */
-/* ===================== */
+
 * {
     box-sizing: border-box;
 }
@@ -15,9 +15,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* ===================== */
+
 /* 2. HEADER */
-/* ===================== */
+
 .header {
     position: fixed;
     top: 0;
@@ -38,9 +38,9 @@ body {
     z-index: 1000;
 }
 
-/* ===================== */
+
 /* 3. NAVIGATION */
-/* ===================== */
+
 .nav {
     display: flex;
     align-items: center;
@@ -105,9 +105,9 @@ body {
     display: block;
 }
 
-/* ===================== */
+
 /* 4. LOGO */
-/* ===================== */
+
 .logo {
     display: flex;
     justify-content: center;
@@ -120,9 +120,9 @@ body {
     object-fit: contain;
 }
 
-/* ===================== */
+
 /* 5. SEARCH */
-/* ===================== */
+
 .search {
     display: flex;
     justify-content: flex-end;
@@ -135,9 +135,9 @@ body {
     outline: none;
 }
 
-/* ===================== */
+
 /* 6. MAIN */
-/* ===================== */
+
 main {
     padding: 120px 20px 20px;
 }
@@ -147,9 +147,9 @@ main {
     scroll-margin-top: 120px;
 }
 
-/* ===================== */
+
 /* 7. ASIDE */
-/* ===================== */
+
 aside {
     max-width: 1100px;
     margin: 30px auto;
@@ -162,9 +162,9 @@ aside {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* ===================== */
+
 /* 8. VIDEO SLIDER */
-/* ===================== */
+
 .video-slider {
     position: relative;
     width: 100%;
@@ -221,29 +221,10 @@ aside {
     opacity: 0.9;
 }
 
-/* ===================== */
-/* 9. AUDIO */
-/* ===================== */
-.audio-section {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 30px;
 
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
 
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.audio-section audio {
-    width: 100%;
-    max-width: 500px;
-}
-
-/* ===================== */
 /* 10. PRODUCTS */
-/* ===================== */
+
 .container {
     max-width: 1100px;
     margin: 80px auto;
@@ -340,10 +321,10 @@ aside {
     color: #fff;
 }
 
-/* ===================== */
+
 /* 11. BLOCK 3 */
 /* ГРАДІЄНТ, ТІНЬ, ПРОЗОРІСТЬ */
-/* ===================== */
+
 .style-demo {
     margin: 60px auto;
     padding: 60px 30px;
@@ -375,9 +356,9 @@ aside {
     opacity: 0.85;
 }
 
-/* ===================== */
+
 /* 12. CONTACT PAGE */
-/* ===================== */
+
 .contact-page {
     background-image:
         linear-gradient(
@@ -479,9 +460,9 @@ aside {
     font-weight: bold;
 }
 
-/* ===================== */
+
 /* 13. TABLE */
-/* ===================== */
+
 .contact-table {
     width: 100%;
     border-collapse: collapse;
@@ -511,9 +492,9 @@ aside {
     background-color: #f9f9f9;
 }
 
-/* ===================== */
+
 /* 14. LISTS */
-/* ===================== */
+
 ol {
     line-height: 1.8;
     color: #333;
@@ -525,18 +506,18 @@ ol ul {
     color: #666;
 }
 
-/* ===================== */
+
 /* 15. TEXT FORMATTING */
-/* ===================== */
+
 mark {
     background-color: gold;
     padding: 0 5px;
     border-radius: 3px;
 }
 
-/* ===================== */
+
 /* 16. LINKS */
-/* ===================== */
+
 main a {
     color: #111;
     text-decoration: underline;
@@ -548,9 +529,9 @@ main a:hover {
     text-decoration: none;
 }
 
-/* ===================== */
+
 /* 17. FOOTER */
-/* ===================== */
+
 .footer {
     background-color: #111;
     color: white;
@@ -603,9 +584,9 @@ main a:hover {
     transform: scale(1.2);
 }
 
-/* ===================== */
+
 /* 18. ADAPTIVE */
-/* ===================== */
+
 @media (max-width: 992px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
